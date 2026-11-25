@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Café Inglés · Cuarto Balotario (100 Preguntas)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <!-- Encabezado estilo Formulario / Menú de Cafetería -->
+    <header class="cafe-header-card">
+      <div class="cafe-banner">
+        <div class="cafe-eyebrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" stroke="currentColor" stroke-width="2"/>
+            <path d="M6 1v3M10 1v3M14 1v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Café Inglés · Salón de Estudio
+        </div>
+        <div class="cafe-title-row">
+          <div>
+            <h1 class="cafe-title">Cuarto Balotario de Inglés A1-A2</h1>
+            <p class="cafe-subtitle">
+              I.E.S.T.P. "Gilda Liliana Ballivian Rosado" — Practica con calma, como con una buena taza de café.
+            </p>
+          </div>
+          <div class="cup-badge" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M18 8h1.5a3.5 3.5 0 0 1 0 7H18" stroke="#f3cfa4" stroke-width="2" stroke-linecap="round"/>
+              <path d="M3 8h15v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8z" stroke="#fdf8f0" stroke-width="2"/>
+              <path d="M7 2.5c0 1.2 1.5 1.5 1.5 2.8M11 2.5c0 1.2 1.5 1.5 1.5 2.8M15 2.5c0 1.2 1.5 1.5 1.5 2.8" stroke="#f3cfa4" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-meta-strip">
+        <div class="meta-pills">
+          <span class="meta-pill">100 preguntas oficiales</span>
+          <span class="meta-pill">5 Bloques</span>
+          <span class="meta-pill">Calificación 0 – 20</span>
+        </div>
+        <span>Nivel Básico A1–A2</span>
+      </div>
+    </header>
+
+    <!-- VISTA 1: MENÚ DE MODOS -->
+    <section id="view-menu" class="menu-card" aria-label="Seleccionar modo de práctica">
+      <h2 class="section-heading">¿Qué vamos a preparar hoy?</h2>
+      <p class="section-desc">
+        Elige el formato de tu formulario de práctica. Al finalizar verás cuántas hiciste bien, cuántas mal, tu nota sobre 20 y las explicaciones.
+      </p>
+
+      <div class="modes-grid">
+        <button id="btn-start-20" type="button" class="mode-card">
+          <span class="mode-tag mode-tag--espresso">⚡ Espresso · Rápido</span>
+          <h3>20 Preguntas Random</h3>
+          <p>
+            Un formulario ágil con 20 preguntas elegidas al azar del balotario completo (incluye sus textos de lectura cuando corresponde).
+          </p>
+          <span class="mode-cta">Comenzar Espresso (20) →</span>
+        </button>
+
+        <button id="btn-start-100" type="button" class="mode-card">
+          <span class="mode-tag mode-tag--grande">☕ Taza Grande · Completo</span>
+          <h3>Las 100 Preguntas</h3>
+          <p>
+            El balotario completo en formato formulario para repasar los 5 bloques de principio a fin y medir tu dominio total.
+          </p>
+          <span class="mode-cta">Comenzar Balotario (100) →</span>
+        </button>
+      </div>
+
+      <div class="prefs-box">
+        <div class="prefs-title">Preferencias del Formulario</div>
+
+        <label class="toggle-row" for="toggle-instant">
+          <div class="toggle-text">
+            <strong>Corrección inmediata mientras respondo</strong>
+            <span>Si lo activas, verás si acertaste y el truco/explicación al instante. Si lo dejas apagado, se califica todo al enviar el formulario.</span>
+          </div>
+          <span class="switch">
+            <input id="toggle-instant" type="checkbox" />
+            <span class="slider"></span>
+          </span>
+        </label>
+
+        <label class="toggle-row" for="toggle-shuffle-100">
+          <div class="toggle-text">
+            <strong>Mezclar orden en el modo de 100 preguntas</strong>
+            <span>Por defecto las 100 preguntas van en orden oficial (1 a 100). Actívalo si quieres practicarlas en orden aleatorio.</span>
+          </div>
+          <span class="switch">
+            <input id="toggle-shuffle-100" type="checkbox" />
+            <span class="slider"></span>
+          </span>
+        </label>
+      </div>
+    </section>
+
+    <!-- VISTA 2: FORMULARIO DE PRÁCTICA -->
+    <section id="view-quiz" class="hidden" aria-label="Formulario de preguntas">
+      <div class="sticky-toolbar">
+        <div class="toolbar-top">
+          <div class="toolbar-mode-label">
+            <span>☕</span>
+            <span id="toolbar-mode-label">Formulario</span>
+          </div>
+          <div class="toolbar-stats">
+            <span>Respondidas:</span>
+            <span id="toolbar-count-pill" class="count-pill">0 / 20</span>
+          </div>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+
+        <div class="toolbar-actions">
+          <div id="block-jumps" class="block-jumps"></div>
+          <div style="display:flex;gap:8px;margin-left:auto;">
+            <button id="btn-jump-blank" type="button" class="btn btn-ghost">Ir a sin responder</button>
+            <button id="btn-back-menu" type="button" class="btn btn-ghost">← Cambiar modo</button>
+          </div>
+        </div>
+      </div>
+
+      <form id="quiz-form" class="quiz-form" novalidate></form>
+
+      <div class="form-submit-bar">
+        <div id="submit-hint" class="submit-hint">Responde todas las preguntas para enviar.</div>
+        <button id="btn-submit-form" type="button" class="btn btn-primary">
+          Entregar Formulario y Ver Calificación
+        </button>
+      </div>
+    </section>
+
+    <!-- VISTA 3: BOLETA DE RESULTADOS -->
+    <section id="view-results" class="hidden" aria-label="Resultados y calificación">
+      <div class="receipt-card">
+        <div class="receipt-header">
+          <div id="grade-badge" class="grade-badge grade-badge--pass">Resultado</div>
+          <div id="grade-score-big" class="grade-score-big">20 / 20</div>
+          <div id="grade-score-sub" class="grade-score-sub">Acertaste 20 de 20 preguntas</div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box stat-box--good">
+            <div id="stat-correct" class="stat-value">0</div>
+            <div class="stat-label">Preguntas Buenas</div>
+          </div>
+          <div class="stat-box stat-box--bad">
+            <div id="stat-wrong" class="stat-value">0</div>
+            <div class="stat-label">Preguntas Malas</div>
+          </div>
+          <div class="stat-box stat-box--grade">
+            <div id="stat-percent" class="stat-value">0%</div>
+            <div class="stat-label">Porcentaje de Acierto</div>
+          </div>
+        </div>
+
+        <div class="receipt-actions">
+          <button id="btn-retry-mistakes" type="button" class="btn btn-primary">
+            Practicar solo las que fallé
+          </button>
+          <button id="btn-new-random-20" type="button" class="btn btn-secondary">
+            Nuevo Espresso (20 Random)
+          </button>
+          <button id="btn-retry-full-100" type="button" class="btn btn-secondary">
+            Reintentar las 100
+          </button>
+          <button id="btn-results-menu" type="button" class="btn btn-ghost">
+            Volver al Menú
+          </button>
+        </div>
+      </div>
+
+      <div class="review-filter-bar">
+        <h3 class="section-heading" style="margin:0;font-size:1.2rem;">Revisión de Respuestas</h3>
+        <div class="filter-tabs" role="tablist" aria-label="Filtrar respuestas">
+          <button type="button" class="filter-tab is-active" data-filter="all">Todas</button>
+          <button type="button" class="filter-tab" data-filter="wrong">Solo Malas</button>
+          <button type="button" class="filter-tab" data-filter="correct">Solo Buenas</button>
+        </div>
+      </div>
+
+      <div id="review-list" class="quiz-form"></div>
+    </section>
+
+    <footer class="page-footer">
+      Café Inglés · Basado en el Cuarto Balotario Oficial (I.E.S.T.P. "Gilda Liliana Ballivian Rosado")
+    </footer>
+  </main>
+
+  <!-- Modal de confirmación si hay preguntas sin responder -->
+  <div id="modal-confirm" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <h3 id="modal-title">¿Entregar con preguntas sin responder?</h3>
+      <p id="modal-unanswered-text">
+        Todavía tienes preguntas sin responder.
+      </p>
+      <div class="modal-actions">
+        <button id="btn-modal-go-blank" type="button" class="btn btn-secondary">
+          Revisar faltantes
+        </button>
+        <button id="btn-modal-submit-anyway" type="button" class="btn btn-primary">
+          Entregar igual
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
